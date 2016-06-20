@@ -9,41 +9,41 @@
 ## Feature Transformers
 
 
-### StringIndexer
+### *StringIndexer*
 
-### IndexToString
+### *IndexToString*
 
-### VectorIndexer
+### *VectorIndexer*
 
-### OneHotEncoder
+### *OneHotEncoder*
 
-### Binarizer
+### *Binarizer*
 
-### Bucketizer
+### *Bucketizer*
 
-### Normalizer
+### *Normalizer*
 
-### StandardScaler
+### *StandardScaler*
 
-### MinMaxScaler
+### *MinMaxScaler*
 
-### QuantileDiscretizer
+### *QuantileDiscretizer*
 
-### PolynomialExpansion
+### *PolynomialExpansion*
 
 ### Discrete Cosine Transform (DCT)
 
-### Vector Assembler
+### *VectorAssembler*
 
-### SQLTransformer
+### *SQLTransformer*
 
-### PCA
+### *PCA*
 
-### ElementwiseProduct
+### *ElementwiseProduct*
 
-### Tokenizer
+### *Tokenizer*
 
-### StopWordsRemover
+### *StopWordsRemover*
 
 ### n-Gram
 
@@ -52,16 +52,16 @@
 
 ### TF-IDF
 
-### Word2Vec
+### *Word2Vec*
 
-### CountVectorizer
+### *CountVectorizer*
 
 
 ## Feature Selectors
 
-### VectorSlicer
+### *VectorSlicer*
 
-### RFormula
+### *RFormula*
 
-### ChiSqSelect
+### *ChiSqSelect*
 
