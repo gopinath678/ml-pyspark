@@ -9,8 +9,59 @@
 ## Feature Transformers
 
 
+### StringIndexer
+
+### IndexToString
+
+### VectorIndexer
+
+### OneHotEncoder
+
+### Binarizer
+
+### Bucketizer
+
+### Normalizer
+
+### StandardScaler
+
+### MinMaxScaler
+
+### QuantileDiscretizer
+
+### PolynomialExpansion
+
+### Discrete Cosine Transform (DCT)
+
+### Vector Assembler
+
+### SQLTransformer
+
+### PCA
+
+### ElementwiseProduct
+
+### Tokenizer
+
+### StopWordsRemover
+
+### n-Gram
+
+
 ## Feature Extractors
+
+### TF-IDF
+
+### Word2Vec
+
+### CountVectorizer
 
 
 ## Feature Selectors
+
+### VectorSlicer
+
+### RFormula
+
+### ChiSqSelect
 
