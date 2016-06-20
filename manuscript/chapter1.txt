@@ -1,1 +1,6 @@
 # Chapter 1
+
+Spark has a logo. Here it is...
+
+![The Apache Spark Logo](images/spark-logo-trademark.png)
+
