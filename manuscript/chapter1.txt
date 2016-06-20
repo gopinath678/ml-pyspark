@@ -1,6 +1,10 @@
 # Chapter 1: Overview of Spark and Spark ML
 
-Spark has a logo. Here it is...
+## Short History of Apache Spark
 
-![The Apache Spark Logo](images/spark-logo-trademark.png)
+
+## Machine Learning with Spark
+
+
+## Python + Spark = PySpark
 
