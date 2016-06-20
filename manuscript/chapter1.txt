@@ -1,4 +1,4 @@
-# Chapter 1
+# Chapter 1: Overview of Spark and Spark ML
 
 Spark has a logo. Here it is...
 
