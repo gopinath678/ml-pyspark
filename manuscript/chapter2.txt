@@ -12,6 +12,19 @@
 ## Manipulating Data Inside DataFrames
 
 
+### *withColumn* operations
+
+### String functions
+
+### Mathematical functions
+
+### Datetime functions
+
+### User-defined functions (UDFs)
+
+### Window functions
+
+
 ## Transforming DataFrames
 
 
