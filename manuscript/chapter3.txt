@@ -131,7 +131,7 @@ The *StopWordsRemover* feature transformer filters out stop words from input.
 
 The subset of features can be specified with either indices (setIndices()) or names (setNames()). At least one feature must be selected. Duplicate features are not allowed, so there can be no overlap between selected indices and names.
 
-The output vector will order features with the selected indices first (in the order given), followed by the selected names (in the order given).
+The output vector will order features with the selected indices first (in the order given), followed by the selected names (in the order given). 
 
 ### *RFormula*
 
