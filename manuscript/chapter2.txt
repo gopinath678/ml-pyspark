@@ -58,7 +58,6 @@ A great way to get help when using **Python** is to use the help function on an 
     # Get help on sparse vectors
     help(Vectors.sparse)
 
-
 PySpark provides a [DenseVector](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.linalg.DenseVector) class within the module [pyspark.mllib.linalg](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#module-pyspark.mllib.linalg). A `DenseVector` is used to store arrays of values for use in PySpark. The `DenseVector` actually stores values in a [**NumPy** array](http://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html) and delegates calculations to that object.  You can create a new `DenseVector` using `DenseVector()` and passing in an **NumPy** array or a **Python** list.
  
 `DenseVector` implements several functions, such as `DenseVector.dot()` and `DenseVector.norm()`.
@@ -76,3 +75,9 @@ A dense vector can be created by using the [Vectors](http://spark.apache.org/doc
 
 The dot product of two vectors can be calculated by using `DenseVector.dot()`. The dot product is equivalent to performing element-wise multiplication and then taking the sum of the result.
  
+Here is the calculation for the dot product of two vectors, where each vector has length {$$}n{/$$}:
+
+{$$}
+\\[ w \cdot x = \sum_{i=1}^n w_i x_i \\]
+{/$$} 
+
