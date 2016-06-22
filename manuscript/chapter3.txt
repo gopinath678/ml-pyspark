@@ -20,80 +20,82 @@
 
 ### *StringIndexer*
 
-The *StringIndexer* transformer is a label indexer that maps a string column of labels to a column of label indices. If the input column is numeric, we cast it to string and index the string values. The indices are in [0, numLabels), ordered by label frequencies. So the most frequent label gets index 0.
+The `StringIndexer` transformer is a label indexer that maps a string column of labels to a column of label indices. If the input column is numeric, it is cast to a string and the string values are indexed. The indices are in [0, numLabels), ordered by label frequencies. So the most frequent label gets index `0`.
 
 
 ### *IndexToString*
 
-The *IndexToString* transformer maps a column of indices back to a new column of corresponding string values. The index-string mapping is either from the ML attributes of the input column, or from user-supplied labels (which take precedence over ML attributes). This is the reverse operation that the *StringIndexer* performs (it converts strings into indices).
+The `IndexToString` transformer maps a column of indices back to a new column of corresponding string values. The index-string mapping is either from the ML attributes of the input column, or from user-supplied labels (which take precedence over ML attributes). This is the reverse operation that the `StringIndexer` performs (it converts strings into indices).
 
 ### *VectorIndexer*
 
-The *VectorIndexer* transformer indexes categorical feature columns in a dataset of *Vector*. There are two ways to use the *VectorIndexer*:
+The `VectorIndexer` transformer indexes categorical feature columns in a dataset of type `Vector`. There are two ways to use the `VectorIndexer`:
 
 (1) Automatically identify categorical features (this is the default behavior)
 
 (2) Index all features, if all features are categorical
 
-The default case (automatically identifying all categorical features) is useful when processing a dataset of unknown vectors into a dataset with some continuous features and some categorical features. The choice between continuous and categorical is based upon a *maxCategories* parameter. Simply set *maxCategories* to the maximum number of categories any categorical feature should have.
+The default case (automatically identifying all categorical features) is useful when processing a dataset of unknown vectors into a dataset with some continuous features and some categorical features. The choice between continuous and categorical is based upon a `maxCategories` parameter. Simply set `maxCategories` to the maximum number of categories any categorical feature should have.
 
-In the secondary usage case, one would set *maxCategories* to be very large (i.e., a larger number than the available features), thus building an index of unique values for all features. Obviously if features are continuous, there may potentially be a lot of unique values, and, these will be collected at the driver.
+In the secondary usage case, one would set `maxCategories` to be very large (i.e., a larger number than the available features), thus building an index of unique values for all features. Obviously if features are continuous, there may potentially be a lot of unique values, and, these will be collected at the driver.
 
 
 ### *OneHotEncoder*
 
-The *OneHotEncoder* transformer maps a column of categorical indices to a column of binary vectors, with at most a single one-value per row that indicates the input category index. For example with 5 categories, an input value of 2.0 would map to an output vector of *[0.0, 0.0, 1.0, 0.0]*. The last category is not included by default (configurable via *dropLast*) because it makes the vector entries sum up to one, and hence linearly dependent. So an input value of 4.0 maps to *[0.0, 0.0, 0.0, 0.0]*. The output vectors are of the *SparseVector* type.
+The `OneHotEncoder` transformer maps a column of categorical indices to a column of binary vectors, with at most a single one-value per row that indicates the input category index. For example with 5 categories, an input value of `2.0` would map to an output vector of `[0.0, 0.0, 1.0, 0.0]`. The last category is not included by default (configurable via `dropLast`) because it makes the vector entries sum up to one, and hence linearly dependent. So an input value of `4.0` maps to `[0.0, 0.0, 0.0, 0.0]`. The output vectors are of the `SparseVector` type.
 
 
 ### *Binarizer*
 
-With the *Binarizer* transformer, you can binarize a column of continuous features using a threshold value.
+With the `Binarizer` transformer, you can binarize a column of continuous features using a threshold value.
 
 
 ### *Bucketizer*
 
-Using the *Bucketizer* transformer, it’s possible to map a column of continuous features to a column of feature buckets.
+Using the `Bucketizer` transformer, it’s possible to map a column of continuous features to a column of feature buckets.
 
 ### *Normalizer*
 
-The *Normalizer* normalizes a vector to have unit norm using the given p-norm.
+The `Normalizer` transformer normalizes a vector to have unit norm using the given p-norm.
 
 ### *StandardScaler*
 
-Standardizes features by removing the mean and scaling to unit variance using column summary statistics on the samples in the training set.
+`StandardScaler` standardizes features by removing the mean and then scaling to unit variance using column summary statistics on the samples in the training set.
 
 The “unit std” is computed using the corrected sample standard deviation, which is computed as the square root of the unbiased sample variance.
 
+{$$}
 s_{N}={\sqrt {{\frac {1}{N}}\sum _{i=1}^{N}(x_{i}-{\overline {x}})^{2}}}.
+{/$$}
 
 ### *MinMaxScaler*
 
-This transformer rescales each feature individually to a common range [min, max] linearly using column summary statistics. This is variously known as *min-max normalization* or *rescaling*.
+This transformer rescales each feature individually to a common range ([*min*, *max*]) linearly using column summary statistics. This is variously known as *min-max normalization* or *rescaling*.
 
 ### *QuantileDiscretizer*
 
-The *QuantileDiscretizer* transformer takes a column with continuous features and outputs a column with binned categorical features. The number of bins can be set using the *numBuckets* parameter. The bin ranges are chosen using an approximate algorithm (see the documentation for *approxQuantile()* for a detailed description). The precision of the approximation can be controlled with the *relativeError* parameter. The lower and upper bin bounds will be *-Infinity* and *+Infinity*, covering all real values
+The `QuantileDiscretizer` transformer takes a column with continuous features and outputs a column with binned categorical features. The number of bins can be set using the `numBucket` parameter. The bin ranges are chosen using an approximate algorithm (see the documentation for `approxQuantile()` for a detailed description). The precision of the approximation can be controlled with the `relativeError` parameter. The lower and upper bin bounds should be *-Infinity* and *+Infinity*, covering all real values
 
 ### *PolynomialExpansion*
 
-The *PolynomialExpansion* transformer perform feature expansion in a polynomial space. An expansion of a product of sums expresses it as a sum of products by using the fact that multiplication distributes over addition. Taking a 2-variable feature vector as an example, (*x*, *y*), if we want to expand it with degree 2, then we get (*x*, *x* * *x*, *y*, *x* * *y*, *y* * *y*).
+The `PolynomialExpansion` transformer perform feature expansion in a polynomial space. An expansion of a product of sums expresses it as a sum of products by using the fact that multiplication distributes over addition. Taking a 2-variable feature vector as an example, (*x*, *y*), if it is to be expanded with degree 2, then we obtain (*x*, *x* * *x*, *y*, *x* * *y*, *y* * *y*).
 
 
 ### Discrete Cosine Transform (DCT)
 
-*DCT* is a feature transformer that takes the 1D discrete cosine transform of a real vector. No zero padding is performed on the input vector. It returns a real vector of the same length representing the DCT. The return vector is scaled such that the transform matrix is unitary (aka scaled DCT-II).
+`DCT` is a feature transformer that takes the 1D discrete cosine transform of a real vector. No zero padding is performed on the input vector. It returns a real vector of the same length representing the DCT. The return vector is scaled such that the transform matrix is unitary (aka scaled DCT-II).
 
 ### *VectorAssembler*
 
-The *VectorAssembler* transformer merges multiple columns into a vector column.
+The `VectorAssembler` transformer merges multiple columns into a vector column.
 
 ### *SQLTransformer*
 
-The *SQLTransformer* transformer implements the transforms which are defined by SQL statement. Currently the SQL syntax allowed for this transformer is quite basic. The statement must be in the form: ‘SELECT ... FROM __THIS__’. In this construction, the ‘__THIS__’ part represents the underlying table of the input dataset.
+The `SQLTransformer` transformer implements the transforms which are defined by SQL statement. Currently the SQL syntax allowed for this transformer is quite basic. The statement must be in the form: `SELECT ... FROM \_\_THIS\_\_`. In this construction, the `\_\_THIS\_\_` part represents the underlying table of the input dataset.
 
 ### *PCA*
 
-PCA trains a model to project vectors to a lower dimensional space of the top k principal components.
+`PCA` trains a model to project vectors to a lower dimensional space of the top k principal components.
 
 ### *ElementwiseProduct*
 
@@ -101,11 +103,11 @@ Outputs the Hadamard product (i.e., the element-wise product) of each input vect
 
 ### *Tokenizer*
 
-The *Tokenizer* converts the input string to lowercase and then splits it by white spaces.
+The `Tokenizer` converts the input string to lowercase and then splits it by white spaces.
 
 ### *StopWordsRemover*
 
-The *StopWordsRemover* feature transformer filters out stop words from input.
+The `StopWordsRemover` feature transformer filters out stop words from input.
 
 
 ### n-Gram
@@ -117,7 +119,7 @@ The *StopWordsRemover* feature transformer filters out stop words from input.
 
 ### *Word2Vec*
 
-*Word2Vec* trains a model of Map(String, Vector), i.e. transforms a word into a code for further natural language processing or machine learning process.
+`Word2Vec` trains a model of `Map(String, Vector)`. This is to say that it transforms a word into code for further natural language processing or machine learning processes.
 
 
 ### *CountVectorizer*
@@ -127,11 +129,11 @@ The *StopWordsRemover* feature transformer filters out stop words from input.
 
 ### *VectorSlicer*
 
-*VectorSlicer* takes a feature vector and outputs a new feature vector with a subarray of the original features.
+`VectorSlicer` takes a feature vector and outputs a new feature vector with a subarray of the original features.
 
-The subset of features can be specified with either indices (setIndices()) or names (setNames()). At least one feature must be selected. Duplicate features are not allowed, so there can be no overlap between selected indices and names.
+The subset of features can be specified with either indices (using `setIndices()`) or names (using `setNames()`). At least one feature must be selected. Duplicate features are not allowed, so there can be no overlap between selected indices and names.
 
-The output vector will order features with the selected indices first (in the order given), followed by the selected names (in the order given). 
+The output vector will order features with the selected indices first (in the order given), followed by the selected names (in the order given).
 
 ### *RFormula*
 
