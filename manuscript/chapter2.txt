@@ -40,3 +40,14 @@
 ## MLlib Data Types
 
 
+**MLlib** supports both dense and sparse types for vectors and matrices. Vectors are most commonly used in **MLlib** whereas matrices have poor scaling properties.
+ 
+A dense vector contains an array of values, while a sparse vector stores the size of the vector, an array of indices, and an array of values that correspond to the indices. A sparse vector saves space by not storing zero values. For example, with the dense vector `[2.0, 0.0, 0.0, 3.0, 0.0, 0.0, 0.0]`, a way to store that as a sparse vector is with size `7`, indices as `[0, 3]`, and values as `[2.0, 3.0]`.
+
+A great way to get help when using **Python** is to use the help function on an object or method.  If help isn't sufficient, other places to look include the [programming guides](http://spark.apache.org/docs/latest/programming-guide.html), the [**Python API**](http://spark.apache.org/docs/latest/api/python/index.html), and directly in the [source code](https://github.com/apache/spark/tree/master/python/pyspark) for PySpark.
+
+
+{lang=python}
+# import data types
+from pyspark.mllib.linalg import DenseVector, SparseVector, SparseMatrix, DenseMatrix, Vectors, Matrices
+
