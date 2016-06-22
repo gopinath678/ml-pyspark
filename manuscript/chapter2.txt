@@ -55,7 +55,7 @@ A great way to get help when using **Python** is to use the help function on an 
     # Get help on dense vectors
     help(Vectors.dense)
     
-    # Get help on sparse vectors
+    # Get help on sparse vectorsa
     help(Vectors.sparse)
 
 PySpark provides a [DenseVector](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.linalg.DenseVector) class within the module [pyspark.mllib.linalg](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#module-pyspark.mllib.linalg). A `DenseVector` is used to store arrays of values for use in PySpark. The `DenseVector` actually stores values in a [**NumPy** array](http://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html) and delegates calculations to that object.  You can create a new `DenseVector` using `DenseVector()` and passing in an **NumPy** array or a **Python** list.
@@ -84,7 +84,7 @@ Here is the calculation for the dot product of two vectors, where each vector ha
 Note that you may also see {$$}w \cdot x{/$$} represented as {$$}w^\top x{/$$}.
 
 {lang=python}
-denseVector.dot(denseVector)
+    denseVector.dot(denseVector)
 
 **Norm**
  
@@ -94,7 +94,7 @@ The norm of a vector can be calculated using `Vectors.norm`. The norm calculatio
 \left[ ||x|| _p = \bigg( \sum_i^n |x_i|^p \bigg)^{1/p} \right]
 {/$$}
 
-Sometimes it’s important to normalize ML features before training a model. The `spark.ml` library can be used to perform this normalization with a transformer.
+Sometimes it's important to normalize ML features before training a model. The `spark.ml` library can be used to perform this normalization with a transformer.
 
 {lang=python}
     # Get the norm of the `denseVector` object
@@ -164,7 +164,7 @@ In **MLlib**, labeled training instances are stored using the [LabeledPoint](htt
 
 **Rating**
 
-When performing collaborative filtering, vectors or labeled points aren’t used. Rather, another object is required to capture the relationship between users, products, and ratings. This is represented by the `Rating` object. Further information can be found in the [**Python** API](http://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.recommendation.Rating).
+When performing collaborative filtering, vectors or labeled points aren't used. Rather, another object is required to capture the relationship between users, products, and ratings. This is represented by the `Rating` object. Further information can be found in the [**Python** API](http://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.recommendation.Rating).
 
 {lang=python}
     from pyspark.mllib.recommendation import Rating
