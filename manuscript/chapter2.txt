@@ -78,6 +78,6 @@ The dot product of two vectors can be calculated by using `DenseVector.dot()`. T
 Here is the calculation for the dot product of two vectors, where each vector has length {$$}n{/$$}:
 
 {$$}
-\\[ w \cdot x = \sum_{i=1}^n w_i x_i \\]
+\left[ w \cdot x = \sum_{i=1}^n w_i x_i \right]
 {/$$} 
 
