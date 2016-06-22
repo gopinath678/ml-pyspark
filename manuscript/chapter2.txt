@@ -48,6 +48,6 @@ A great way to get help when using **Python** is to use the help function on an 
 
 
 {lang=python}
-# import data types
-from pyspark.mllib.linalg import DenseVector, SparseVector, SparseMatrix, DenseMatrix, Vectors, Matrices
+    # import data types
+    from pyspark.mllib.linalg import DenseVector, SparseVector, SparseMatrix, DenseMatrix, Vectors, Matrices
 
