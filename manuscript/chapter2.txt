@@ -81,3 +81,98 @@ Here is the calculation for the dot product of two vectors, where each vector ha
 \left[ w \cdot x = \sum_{i=1}^n w_i x_i \right]
 {/$$} 
 
+Note that you may also see {$$}w \cdot x{/$$} represented as {$$}w^\top x{/$$}.
+
+{lang=python}
+denseVector.dot(denseVector)
+
+**Norm**
+ 
+The norm of a vector can be calculated using `Vectors.norm`. The norm calculation is:
+
+{$$} 
+\left[ ||x|| _p = \bigg( \sum_i^n |x_i|^p \bigg)^{1/p} \right]
+{/$$}
+
+Sometimes it’s important to normalize ML features before training a model. The `spark.ml` library can be used to perform this normalization with a transformer.
+
+{lang=python}
+    # Get the norm of the `denseVector` object
+    Vectors.norm(denseVector, 2)
+
+In **Python**, `DenseVector` operations are delegated to an underlying **NumPy** array so that multiplication, addition, division, and other operations can easily be performed.
+
+{lang=python}
+    # Add 8 to the `denseVector` object
+    denseVector + 8
+    
+    # Multiply the `denseVector` object with itself
+    denseVector * denseVector
+
+Occasionally, an array may be needed from a vector object. Both sparse and dense vectors can be converted to arrays by calling the `toArray` method on the vector.
+
+{lang=python}
+    denseArray = denseVector.toArray()
+    print denseArray
+
+**SparseVector**
+
+Create a `SparseVector` using `Vectors.sparse`.
+
+{lang=python}
+    sparseVector = Vectors.sparse(15, [3, 2], [6.0, 3.0])
+    print 'type(sparseVector): {0}'.format(type(sparseVector))
+    print '\nsparseVector: {0}'.format(sparseVector)
+
+{lang=python}
+    sparseVector.dot(sparseVector)
+
+{lang=python}
+    sparseVector.norm(2)
+
+**LabeledPoint**
+
+In **MLlib**, labeled training instances are stored using the [LabeledPoint](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LabeledPoint) object. Note that the features and label for a `LabeledPoint` are stored in the `features` and `label` attribute of the object.
+
+{lang=python}
+    from pyspark.mllib.regression import LabeledPoint
+    
+    # Get help on the `LabeledPoint` object
+    help(LabeledPoint)
+
+
+{lang=python}
+    labeledPoint = LabeledPoint(2015, [7.0, 11.0, 2.0])
+    print 'labeledPoint: {0}'.format(labeledPoint)
+    print '\nlabeledPoint.features: {0}'.format(labeledPoint.features)
+
+{lang=python}
+    # Features are being stored as a `DenseVector` type
+    print 'type(labeledPoint.features): {0}'.format(type(labeledPoint.features))
+
+{lang=python}
+    print '\nlabeledPoint.label: {0}'.format(labeledPoint.label)
+    print 'type(labeledPoint.label): {0}'.format(type(labeledPoint.label))
+
+{lang=python}
+    labeledPointSparse = LabeledPoint(2015, Vectors.sparse(15, {0: 7.0, 1:11.0, 2: 2.0}))
+    print 'labeledPointSparse: {0}'.format(labeledPointSparse)
+
+{lang=python}
+    print '\nlabeledPoint.featuresSparse: {0}'.format(labeledPointSparse.features)
+    print 'type(labeledPointSparse.features): {0}'.format(type(labeledPointSparse.features))
+
+**Rating**
+
+When performing collaborative filtering, vectors or labeled points aren’t used. Rather, another object is required to capture the relationship between users, products, and ratings. This is represented by the `Rating` object. Further information can be found in the [**Python** API](http://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.recommendation.Rating).
+
+{lang=python}
+    from pyspark.mllib.recommendation import Rating
+    
+    # Get information on the `Rating` object
+    help(Rating)
+
+
+
+
+
