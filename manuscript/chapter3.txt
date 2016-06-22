@@ -78,12 +78,12 @@ The `QuantileDiscretizer` transformer takes a column with continuous features an
 
 ### *PolynomialExpansion*
 
-The `PolynomialExpansion` transformer perform feature expansion in a polynomial space. An expansion of a product of sums expresses it as a sum of products by using the fact that multiplication distributes over addition. Taking a 2-variable feature vector as an example, (*x*, *y*), if it is to be expanded with degree 2, then we obtain (*x*, *x* * *x*, *y*, *x* * *y*, *y* * *y*).
+The `PolynomialExpansion` transformer perform feature expansion in a polynomial space. An expansion of a product of sums expresses it as a sum of products by using the fact that multiplication distributes over addition. Taking a 2-variable feature vector as an example, ({$$}x{/$$}, {$$}y{/$$}), if it is to be expanded with degree 2, then we obtain ({$$}x{/$$}, {$$}x^2{/$$}, {$$}y{/$$}, {$$}xy{/$$}, {$$}y^2{/$$}).
 
 
 ### Discrete Cosine Transform (DCT)
 
-`DCT` is a feature transformer that takes the 1D discrete cosine transform of a real vector. No zero padding is performed on the input vector. It returns a real vector of the same length representing the DCT. The return vector is scaled such that the transform matrix is unitary (aka scaled DCT-II).
+`DCT` is a feature transformer that takes the 1D discrete cosine transform of a real vector. No zero padding is performed on the input vector. It returns a real vector of the same length representing the DCT. The return vector is scaled such that the transform matrix is unitary (also known as scaled DCT-II).
 
 ### *VectorAssembler*
 
@@ -91,7 +91,7 @@ The `VectorAssembler` transformer merges multiple columns into a vector column.
 
 ### *SQLTransformer*
 
-The `SQLTransformer` transformer implements the transforms which are defined by SQL statement. Currently the SQL syntax allowed for this transformer is quite basic. The statement must be in the form: `SELECT ... FROM \_\_THIS\_\_`. In this construction, the `\_\_THIS\_\_` part represents the underlying table of the input dataset.
+The `SQLTransformer` transformer implements the transforms which are defined by SQL statement. Currently the SQL syntax allowed for this transformer is quite basic. The statement must be in the form: `SELECT ... FROM __THIS__`. In this construction, the `__THIS__` part represents the underlying table of the input dataset.
 
 ### *PCA*
 
