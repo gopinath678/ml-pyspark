@@ -69,6 +69,68 @@ weightCol
 ## Decision Tree Classifier
 
 
+
+self
+
+: self
+
+featuresCol
+
+: Default is `features`
+
+labelCol
+
+: Default is `label`
+
+predictionCol
+
+: Default is `prediction`
+
+probabilityCol
+
+: Default is `probability`
+
+rawPredictionCol
+
+: Default is `rawPrediction`
+
+maxDepth
+
+: Default is `5` 
+
+maxBins
+
+: Default is `32`
+
+minInstancesPerNode
+
+: Default is `1`
+
+minInfoGain
+
+: Default is `0.0`
+
+maxMemoryInMB
+
+: Default is `256`
+
+cacheNodeIds
+
+: Default is `False`
+
+checkpointInterval
+
+: Default is `10`
+
+impurity
+
+: Default is `gini`
+
+seed
+
+: Default is `None`
+
+
 ## Random Forest Classifier
 
 
