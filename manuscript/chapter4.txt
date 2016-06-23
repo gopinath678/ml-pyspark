@@ -3,6 +3,69 @@
 ## Logistic Regression
 
 
+
+Arguments for the `LogisticRegression()` classifier.
+
+self
+
+: self
+
+featuresCol
+
+: Default is `features`
+
+labelCol
+
+: Default is `label`
+
+predictionCol
+
+: Default is `prediction`
+
+maxIter
+
+: Default is `100`
+
+regParam
+
+: Default is `0.0`
+
+elasticNetParam
+
+: Default is `0.0`
+
+tol
+
+: Default is `1e-6`
+
+fitIntercept
+
+: Default is `True`
+
+threshold
+
+: Default is `0.5`
+
+thresholds
+
+: thresholds
+
+probabilityCol
+
+: Default is `probability`
+
+rawPredictionCol
+
+: Default is `rawPrediction`
+
+standardization
+
+: Default is `True`
+
+weightCol
+
+: Default is `None`
+
 ## Decision Tree Classifier
 
 
