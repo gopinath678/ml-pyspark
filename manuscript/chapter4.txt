@@ -2,7 +2,7 @@
 
 ## Logistic Regression
 
-
+Logistic regression is a type of probabilistic statistical classification model. Logistic regression measures the relationship between the categorical dependent variable and one or more independent variables, which are usually (but not necessarily) continuous, by using probability scores as the predicted values of the dependent variable.
 
 Arguments for the `LogisticRegression()` classifier.
 
